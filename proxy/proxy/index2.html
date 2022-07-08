@@ -1,0 +1,56 @@
+<script>
+  let handlers = new Map()
+
+  let usedReactivities = []
+
+  function effect(handler) {
+    // handlers.push(handler)
+    usedReactivities = []
+    handler()
+    for(let usedReactivity of usedReactivities) {
+      let [obj, prop] = usedReactivity
+      if(!handlers.get(obj)) {
+         handlers.set(obj, new Map)
+      }
+      if(!handlers.get(obj).get(prop)) {
+         handlers.get(obj).set(prop,[])
+      }
+      handlers.get(obj).get(prop).push(handler)
+    }
+    console.log('handlers', handlers)
+  }
+
+  let object = {
+    a: 1,
+    b: 2
+  }
+  
+  let ro = reactivity(object)
+
+  effect(()=>{
+    console.log(ro.a)
+  })
+
+  function reactivity(object) {
+    console.log("reactivity", object)
+    return new Proxy(object, {
+      get(obj, prop) {
+        console.log(obj, prop)
+        usedReactivities.push([obj, prop])
+        return obj[prop]
+      },
+      set(obj, prop, val) {
+        console.log('set', arguments)
+        // for(let handler of handlers) {
+        //   handler()
+        // }
+        return obj[props] = val
+      },
+      getPrototypeOf() {
+        console.log('getPrototypeOf', arguments)
+        return {}
+      }
+    })
+  }
+
+</script>

@@ -1,0 +1,29 @@
+{
+  "name": "test-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "nyc mocha",
+    "dev": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@ava/babel": "^2.0.0",
+    "@babel/core": "^7.17.2",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/register": "^7.17.0",
+    "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "ava": "^4.0.1",
+    "babel-loader": "^8.2.3",
+    "mocha": "^9.2.0",
+    "webpack": "^5.69.0"
+  },
+  "dependencies": {
+    "babel-plugin-istanbul": "^6.1.1",
+    "nyc": "^15.1.0"
+  }
+}

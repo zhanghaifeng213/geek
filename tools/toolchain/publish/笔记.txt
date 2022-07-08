@@ -1,0 +1,3 @@
+虚拟机ip 网络桥接: 192.168.1.9 
+链接 ssh zhanghaifeng@192.168.1.9 密码：zhf213
+文件上传：scp -r .\server\ zhanghaifeng@192.168.1.9:~

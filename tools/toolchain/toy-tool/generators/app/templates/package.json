@@ -1,0 +1,16 @@
+{
+  "name": "temp-name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require @babel/register",
+    "coverage": "nyc mocha",
+    "start": "webpack-dev-server",
+    "build": "webpack",
+    "publish": "node D:\\D\\environment\\node\\node_modules\\toy-tool\\publish.js",
+    "lint": "eslint ./src"
+  },
+  "author": "zhf",
+  "license": "MIT"
+}
